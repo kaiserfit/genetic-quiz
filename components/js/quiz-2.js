@@ -56,13 +56,13 @@ function getCookie(cname) {
         switch(r){
 
             case 1:
-            ttq.track('Contact');
+            // ttq.track('Contact');
             // fbq('track', 'Lead', {}, {eventID:event_id});
             // kTr('Lead');
             bPop(r);
             break;
                 case 2:
-                    ttq.track('SubmitForm');
+                    // ttq.track('SubmitForm');
                     bPop(r);
                     break;
                     case 3:
@@ -72,10 +72,10 @@ function getCookie(cname) {
                             bPop(r);
                             break;
                              case 5:
-                                ttq.track('Search');
+                                // ttq.track('Search');
                                 // fbq('track', 'Contact', {}, {eventID:event_id});
                                 // kTr('Contact');
-                                gtag('event', 'conversion', {'send_to': 'AW-10886811479/-Xg0CLvhvrQDENeensco'});
+                                // gtag('event', 'conversion', {'send_to': 'AW-10886811479/-Xg0CLvhvrQDENeensco'});
                                 bPop(r);
                                 break;
             
