@@ -135,7 +135,7 @@ $('.ans-btn').click(function(){
         } else {
             setTimeout(() => {
                 document.cookie = "_fbe_id="+event_id;
-                window.location.href="https://kaizerfit.com/fathacks/?gid="+event_id;
+                window.location.href="/fathacks/?gid="+event_id;
             }, 500);
         }
       
