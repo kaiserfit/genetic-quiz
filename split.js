@@ -1,5 +1,5 @@
 //* JS file for split testing functions */
-      const testid = 14; //change this to the test id you created
+      const testid = 17; //change this to the test id you created
 
               function randomIntFromInterval(min, max) { // min and max included 
                    return Math.floor(Math.random() * (max - min + 1) + min);
