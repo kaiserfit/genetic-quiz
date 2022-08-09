@@ -1,3 +1,28 @@
+function weightedRand(spec) {
+    var i, j, table=[];
+    for (i in spec) {
+      // The constant 10 below should be computed based on the
+      // weights in the spec for a correct and optimal table size.
+      // E.g. the spec {0:0.999, 1:0.001} will break this impl.
+      for (j=0; j<spec[i]*10; j++) {
+        table.push(i);
+      }
+    }
+    return function() {
+      return table[Math.floor(Math.random() * table.length)];
+    }
+}
+
+
+var rand012 = weightedRand({0:0.0, 1:0.5, 2:0.5});
+
+
+function getPage(){
+    //function to get the page for the split test 
+    var n = rand012();
+    document.cookie="page=page"+n+";path=/"; 
+}
+
 
 const states = [
     {id:0,cookie:"gender", state:"Gender: "},
@@ -34,7 +59,7 @@ function getCookie(cname) {
         const r = parseInt($("body").data('url'));
         
        function bPop(r){
-           console.log(r);
+          
         var q = getCookie("gender");
         if (q === "Man"){
             $(".d-grid > .ans-btn").addClass("male-btn")
@@ -130,12 +155,17 @@ $('.ans-btn').click(function(){
     if (idx === 5){
         document.cookie="challenge="+ans+";path=/";
         var t = getCookie('testid');
+        document.cookie = "_fbe_id="+event_id;
 
         if (t != ''){
-            recordQuiz();
+            var p = getCookie('page');
+             if (p === "page1"){
+                window.location.href="https://kaizerfit.com/fathacks-v2/vsl.html";
+            } else {
+                window.location.href="https://kaizerfit.com/fathacks-v2/vsl2.html";
+            }
         } else {
             setTimeout(() => {
-                document.cookie = "_fbe_id="+event_id;
                 window.location.href="https://kaizerfit.com/fathacks-v2/";
             }, 500);
         }
@@ -156,22 +186,30 @@ $('.ans-btn').click(function(){
             // ttq.track('Contact');
             // fbq('track', 'Lead', {}, {eventID:event_id});
             // kTr('Lead');
-        
+            var v = getCookie('testid');
+
+            if (v === ""){
+                getPage();
+                document.cookie="testid=18;path=/";
+            }
+
+
+
             document.cookie="gender="+ans+";path=/";
-            window.location.href="/__age/";
+            window.location.href="/genetic-quiz/__age/";
          
         break;
         case 1:
             // ttq.track('SubmitForm');
             document.cookie="userage="+ans+";path=/";
-            window.location.href="/__metabolism/";
+            window.location.href="/genetic-quiz/__metabolism/";
        
         break;
         case 2:
        
 
         document.cookie="metabolism="+ans+";path=/";
-        window.location.href="/__weight/";
+        window.location.href="/genetic-quiz/__weight/";
      
         break;
         case 3:
@@ -179,7 +217,7 @@ $('.ans-btn').click(function(){
             var s = $("#weightMs").text();
     
             document.cookie="weight="+$.trim(s)+";path=/";
-            window.location.href="/__goal/";
+            window.location.href="/genetic-quiz/__goal/";
           
             break;
             case 4 :
@@ -188,7 +226,7 @@ $('.ans-btn').click(function(){
                 // kTr('Contact');
                 // gtag('event', 'conversion', {'send_to': 'AW-10886811479/-Xg0CLvhvrQDENeensco'});
                 document.cookie="goal="+ans+";path=/";
-                window.location.href="/__challenge/";
+                window.location.href="/genetic-quiz/__challenge/";
               
             break;
          
