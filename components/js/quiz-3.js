@@ -160,13 +160,13 @@ $('.ans-btn').click(function(){
         if (t != ''){
             var p = getCookie('page');
              if (p === "page1"){
-                window.location.href="https://kaizerfit.com/fathacks-v2/vsl.html";
+                window.location.href="/fathacks-v2/vsl.html";
             } else {
-                window.location.href="https://kaizerfit.com/fathacks-v2/vsl2.html";
+                window.location.href="/fathacks-v2/vsl2.html";
             }
         } else {
             setTimeout(() => {
-                window.location.href="https://kaizerfit.com/fathacks-v2/";
+                window.location.href="/fathacks-v2/";
             }, 500);
         }
       
