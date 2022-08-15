@@ -166,7 +166,7 @@ $('.ans-btn').click(function(){
             }
         } else {
             setTimeout(() => {
-                window.location.href="/fathacks-v2/";
+                window.location.href="/fathacks-v2/vsl2.html";
             }, 500);
         }
       
@@ -187,10 +187,6 @@ $('.ans-btn').click(function(){
             // kTr('Lead');
             var v = getCookie('testid');
 
-            if (v === ""){
-                getPage();
-                document.cookie="testid=18;path=/";
-            }
 
 
 
