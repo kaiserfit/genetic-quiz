@@ -83,8 +83,7 @@ function getCookie(cname) {
 
             case 1:
             
-            // fbq('track', 'Lead', {}, {eventID:event_id});
-            // kTr('Lead');
+           
             bPop(r);
             break;
                 case 2:
@@ -99,8 +98,7 @@ function getCookie(cname) {
                             break;
                              case 5:
                                 
-                                // fbq('track', 'Contact', {}, {eventID:event_id});
-                                // kTr('Contact');
+           
                                 gtag('event', 'conversion', {'send_to': 'AW-10886811479/-Xg0CLvhvrQDENeensco'});
                                 bPop(r);
                                 break;
@@ -183,13 +181,7 @@ $('.ans-btn').click(function(){
 
     switch(idx){
         case 0 :
-           
-            // kTr('Lead');
-            var v = getCookie('testid');
-
-
-
-
+                  
             document.cookie="gender="+ans+";path=/";
             window.location.href="/genetic-quiz/__age/";
          
@@ -217,8 +209,7 @@ $('.ans-btn').click(function(){
             break;
             case 4 :
                
-                // kTr('Contact');
-                // gtag('event', 'conversion', {'send_to': 'AW-10886811479/-Xg0CLvhvrQDENeensco'});
+               
                 document.cookie="goal="+ans+";path=/";
                 window.location.href="/genetic-quiz/__challenge/";
               
