@@ -1,27 +1,6 @@
-function weightedRand(spec) {
-    var i, j, table=[];
-    for (i in spec) {
-      // The constant 10 below should be computed based on the
-      // weights in the spec for a correct and optimal table size.
-      // E.g. the spec {0:0.999, 1:0.001} will break this impl.
-      for (j=0; j<spec[i]*10; j++) {
-        table.push(i);
-      }
-    }
-    return function() {
-      return table[Math.floor(Math.random() * table.length)];
-    }
-}
 
 
-var rand012 = weightedRand({0:0.0, 1:0.5, 2:0.5});
 
-
-function getPage(){
-    //function to get the page for the split test 
-    var n = rand012();
-    document.cookie="page=page"+n+";path=/"; 
-}
 
 
 const states = [
@@ -152,21 +131,12 @@ $('.ans-btn').click(function(){
 
     if (idx === 5){
         document.cookie="challenge="+ans+";path=/";
-        var t = getCookie('testid');
+      
         document.cookie = "_fbe_id="+event_id;
-
-        if (t != ''){
-            var p = getCookie('page');
-             if (p === "page1"){
-                window.location.href="/fathacks-v2/vsl.html";
-            } else {
-                window.location.href="/fathacks-v2/vsl2.html";
-            }
-        } else {
-            setTimeout(() => {
-                window.location.href="/fathacks-v2/vsl2.html";
-            }, 500);
-        }
+        setTimeout(() => {
+            window.location.href="/fathacks-v2/vsl2.html";
+        }, 500);
+      
       
           
         
