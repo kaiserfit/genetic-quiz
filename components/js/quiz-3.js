@@ -59,7 +59,9 @@ function getCookie(cname) {
        }
         
         switch(r){
-
+            case 0: 
+            kTr('ViewContent');
+            break;
             case 1:
             
            
@@ -99,12 +101,7 @@ function getCookie(cname) {
     
             ipv4 = response.ip;
             document.cookie="_uip="+ipv4;
-            
-            if (r === 0){
-                
-              
-                kTr('ViewContent');
-            }
+         
         }, "json");
       }
    
@@ -212,18 +209,18 @@ function kTr(eventName){
      
       }
 
-    //   setTimeout(() => {
+      setTimeout(() => {
          
-    //       $.ajax({
-    //           type: 'POST',
-    //           url: 'https://hook.integromat.com/rzwt665qate0d0bu5xhex9q7cr0lun7m',
-    //           crossDomain: true,
-    //           data: data,
-    //           dataType: 'json'
+          $.ajax({
+              type: 'POST',
+              url: 'https://hook.integromat.com/rzwt665qate0d0bu5xhex9q7cr0lun7m',
+              crossDomain: true,
+              data: data,
+              dataType: 'json'
         
-    //           }); //end ajax
+              }); //end ajax
   
-    //   }, 500);
+      }, 500);
      
       
 }
