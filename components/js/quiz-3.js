@@ -100,7 +100,7 @@ function getCookie(cname) {
         
     
             ipv4 = response.ip;
-            document.cookie="_uip="+ipv4;
+            document.cookie="_uip="+ipv4+";path=/";
          
         }, "json");
       }
