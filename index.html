@@ -76,6 +76,16 @@
 
 
 <script type="text/javascript">
+  function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+
   function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -113,7 +123,7 @@ var ipv4 = "";
 
             var t= false;
             var sub = setInterval(()=>{
-                var r = getCookie("_fbc");
+                var r = getParameterByName("fbclid");
                 var p = getCookie("_uip");
                 if (r !== "" && p !== "" && t === false){
 
