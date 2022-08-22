@@ -34,6 +34,9 @@ function getCookie(cname) {
 
         }
 
+        const fbt = getCookie("_fbc");
+        console.log(fbt);
+
        
         const r = parseInt($("body").data('url'));
         
@@ -206,7 +209,7 @@ function kTr(eventName){
       'userAgent': navAgent,
       'fbc': fbc,
       'ipv4Address': ipv4,
-     
+    'fbt': fbt
       }
 
       setTimeout(() => {
