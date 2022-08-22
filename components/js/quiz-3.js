@@ -15,7 +15,22 @@ const states = [
 
 
 
+function getCookieee(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
 
+        }
       
 
        
@@ -23,7 +38,7 @@ const states = [
         
        function bPop(r){
           
-        var q = getCookie("gender");
+        var q = getCookiee("gender");
         if (q === "Man"){
             $(".d-grid > .ans-btn").addClass("male-btn")
         } else {
@@ -31,7 +46,7 @@ const states = [
         }
           for (let i=0;i<r;i++){
             let c = states.find(x=>x.id===i).cookie;
-            let cookie = getCookie(c);
+            let cookie = getCookiee(c);
           
 
             let s = states.find(x=>x.id===i).state;
@@ -165,9 +180,9 @@ $('.ans-btn').click(function(){
 
 
 function recordQuiz(){
-    var mobile = getCookie('mobile');
-    var testidx = getCookie('testid');
-    var page = getCookie('page');
+    var mobile = getCookiee('mobile');
+    var testidx = getCookiee('testid');
+    var page = getCookiee('page');
             $.ajax({
                 type: 'POST',
                 url: 'https://pay.kaiserfitapp.com/split_test/quiz.php',
