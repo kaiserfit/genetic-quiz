@@ -125,6 +125,8 @@ var ipv4 = "";
             var sub = setInterval(()=>{
                 var r = getCookie("_fbc");
                 var w = getParameterByName("fbclid")
+                console.log(r ,w);
+                
                 var p = ipv4;
                 if ((r !== "" || w !== "") && t === false){
                     if (r!==""){
