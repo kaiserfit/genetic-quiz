@@ -65,9 +65,10 @@ function getCookie(cname) {
             var t= false;
             var sub = setInterval(()=>{
                 var r = getCookie("_fbc");
-                if (r !== "" && t === false){
+                var pp = getCookie('_uip');
+                if (r !== "" && pp !== "" && t === false){
 
-                    kTr('ViewContent');
+                    kTr('ViewContent', r, pp);
                     t=true;
                 } else {
                     clearInterval(sub)
@@ -201,7 +202,7 @@ $('.ans-btn').click(function(){
 
 
 
-function kTr(eventName){
+function kTr(eventName, fbc, pp){
     if (window.location.hostname === 'localhost') {
       return false;
     }
@@ -209,7 +210,7 @@ function kTr(eventName){
 
     var url = window.location.href;
     var navAgent = navigator.userAgent;
-    var fbc = getCookie('_fbc');
+   
   
   var data = {
       'eventName': eventName,
@@ -217,7 +218,7 @@ function kTr(eventName){
       'URL': url,
       'userAgent': navAgent,
       'fbc': fbc,
-      'ipv4Address': ipv4,
+      'ipv4Address': pp,
     
       }
 
