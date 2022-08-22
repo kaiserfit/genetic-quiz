@@ -123,12 +123,16 @@ var ipv4 = "";
 
             var t= false;
             var sub = setInterval(()=>{
+              if(t) {
+                    clearInterval(sub)
+                }
                 var r = getCookie("_fbc");
                 var w = getParameterByName("fbclid")
                 console.log(r ,w);
                 
                 var p = getCookie('_uip');
                 if ((r !== "" || w !== "") && p !== "" && t === false){
+                
                     if (r!==""){
 
                       kTr('ViewContent', r, p);
@@ -137,8 +141,10 @@ var ipv4 = "";
 
                     }
                     t=true;
-                    clearInterval(sub)
+                   
                 } 
+                
+               
             }, 100)
 
 function kTr(eventName, fbc, ip){
