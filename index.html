@@ -114,17 +114,17 @@ var ipv4 = "";
   var t= false;
             var sub = setInterval(()=>{
                 var r = getCookie("_fbc");
-              
-                if (r !== ""  && t === false){
+                var p = getCookie("_uip");
+                if (r !== "" && p !== "" && t === false){
 
-                    kTr('ViewContent', r);
+                    kTr('ViewContent', r, p);
                     t=true;
                 } else {
                     clearInterval(sub)
                 }
             }, 100)
 
-function kTr(eventName, fbc){
+function kTr(eventName, fbc, ip){
     if (window.location.hostname === 'localhost') {
       return false;
     }
