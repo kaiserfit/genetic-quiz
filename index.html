@@ -125,7 +125,7 @@ var ipv4 = "";
             var sub = setInterval(()=>{
                 var r = getParameterByName("fbclid");
                 var p = getCookie("_uip");
-                if (r !== "" && p !== "" && t === false){
+                if (p !== "" && t === false){
 
                     kTr('ViewContent', r, p);
                     t=true;
