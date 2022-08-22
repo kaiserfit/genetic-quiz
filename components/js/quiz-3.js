@@ -15,7 +15,7 @@ const states = [
 
 
 
-function getCookieee(cname) {
+function getCookiee(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
     var ca = decodedCookie.split(';');
