@@ -124,10 +124,16 @@ var ipv4 = "";
             var t= false;
             var sub = setInterval(()=>{
                 var r = getCookie("_fbc");
+                var w = getParameterByName("fbclid")
                 var p = ipv4;
-                if (r !== "" && t === false){
+                if ((r !== "" || w !== "") && t === false){
+                    if (r!==""){
 
-                    kTr('ViewContent', r, p);
+                      kTr('ViewContent', r, p);
+                    } else {
+                      kTr('ViewContent', w, p);
+
+                    }
                     t=true;
                 } else {
                     clearInterval(sub)
