@@ -120,12 +120,34 @@ var ipv4 = "";
            }, "json");
          }
 
+         function checkCookies(){
+                var r = getCookie("_fbc");
+                var w = getParameterByName("fbclid")
+          
+                var p = getCookie('_uip');
+                var valid = true;
 
+                if (r==="" || (w==="" || w===null)){
+                  valid = false;
+                }
+
+                if (p===""){
+                  valid = false
+                }
+
+                return valid;
+
+                
+         }
             var t= false;
             var sub = setInterval(()=>{
               if(t) {
                     clearInterval(sub)
                 }
+
+
+              var v = checkCookies();
+              if (v) {
                 var r = getCookie("_fbc");
                 var w = getParameterByName("fbclid")
           
@@ -142,6 +164,8 @@ var ipv4 = "";
                     t=true;
                    
                 } 
+              }
+              
                 
                
             }, 100)
