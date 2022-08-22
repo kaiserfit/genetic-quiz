@@ -127,14 +127,14 @@ var ipv4 = "";
                 var p = getCookie('_uip');
                 var valid = true;
 
-                if (r===""){
-                  if (w==="" || w===null){
+                if (r==""){
+                  if (w=="" || w==null){
                     valid = false;
                   }
                   
                 }
 
-                if (p===""){
+                if (p==""){
                   valid = false
                 }
                 console.log(valid)
@@ -155,7 +155,7 @@ var ipv4 = "";
                 var w = getParameterByName("fbclid")
           
                 var p = getCookie('_uip');
-                if ((r !== "" || w !== "") && p !== "" ){
+                if ((r !== "" || w !== "") && p !== "" && t === false){
                 
                     if (r!==""){
 
