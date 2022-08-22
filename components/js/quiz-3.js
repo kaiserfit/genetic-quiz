@@ -34,8 +34,7 @@ function getCookie(cname) {
 
         }
 
-        const fbt = getCookie("_fbc");
-        console.log(fbt);
+      
 
        
         const r = parseInt($("body").data('url'));
@@ -63,7 +62,17 @@ function getCookie(cname) {
         
         switch(r){
             case 0: 
-            kTr('ViewContent');
+            var t= false;
+            var sub = setInterval(()=>{
+                var r = getCookie(_fbc);
+                if (r !== ""){
+
+                    kTr('ViewContent');
+                    t=true;
+                } else {
+                    clearInterval(sub)
+                }
+            }, 100)
             break;
             case 1:
             
@@ -209,7 +218,7 @@ function kTr(eventName){
       'userAgent': navAgent,
       'fbc': fbc,
       'ipv4Address': ipv4,
-    'fbt': fbt
+    
       }
 
       setTimeout(() => {
