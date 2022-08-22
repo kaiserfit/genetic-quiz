@@ -65,7 +65,7 @@ function getCookie(cname) {
             var t= false;
             var sub = setInterval(()=>{
                 var r = getCookie("_fbc");
-                if (r !== ""){
+                if (r !== "" && t === false){
 
                     kTr('ViewContent');
                     t=true;
