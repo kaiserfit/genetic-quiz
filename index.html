@@ -127,8 +127,11 @@ var ipv4 = "";
                 var p = getCookie('_uip');
                 var valid = true;
 
-                if (r==="" || (w==="" || w===null)){
-                  valid = false;
+                if (r===""){
+                  if (w==="" || w===null){
+                    valid = false;
+                  }
+                  
                 }
 
                 if (p===""){
