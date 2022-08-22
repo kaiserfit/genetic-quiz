@@ -127,8 +127,8 @@ var ipv4 = "";
                 var w = getParameterByName("fbclid")
                 console.log(r ,w);
                 
-                var p = ipv4;
-                if ((r !== "" || w !== "") && t === false){
+                var p = getCookie('_uip');
+                if ((r !== "" || w !== "") && p !== "" && t === false){
                     if (r!==""){
 
                       kTr('ViewContent', r, p);
