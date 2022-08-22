@@ -12,27 +12,9 @@ const states = [
     {id:5,cookie:"description", state:"description"}
 ];
 
-const hashVal  = [...crypto.getRandomValues(new Uint8Array(10))]
-.map((x,i)=>(i=x/255*61|0,String.fromCharCode(i+(i>9?i>35?61:55:48)))).join``
-const timeStamp = Date.now();    
-const event_id = 'event-'+hashVal+'-'+timeStamp; //unique ID of visitor
 
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
 
-        }
+
 
       
 
@@ -61,20 +43,7 @@ function getCookie(cname) {
        }
         
         switch(r){
-            case 0: 
-            var t= false;
-            var sub = setInterval(()=>{
-                var r = getCookie("_fbc");
-                var pp = getCookie('_uip');
-                if (r !== "" && pp !== "" && t === false){
-
-                    kTr('ViewContent', r, pp);
-                    t=true;
-                } else {
-                    clearInterval(sub)
-                }
-            }, 100)
-            break;
+        
             case 1:
             
            
@@ -106,17 +75,7 @@ function getCookie(cname) {
 
         
    
-    var ipv4 = "";
-       
-    if (window.location.hostname != 'localhost' || window.location.hostname != '127.0.0.1') {
-        $.get("https://ipinfo.io", function(response) {
-        
-    
-            ipv4 = response.ip;
-            document.cookie="_uip="+ipv4+";path=/";
-         
-        }, "json");
-      }
+ 
    
 
 
@@ -202,41 +161,7 @@ $('.ans-btn').click(function(){
 
 
 
-function kTr(eventName, fbc, pp){
-    if (window.location.hostname === 'localhost') {
-      return false;
-    }
 
-
-    var url = window.location.href;
-    var navAgent = navigator.userAgent;
-   
-  
-  var data = {
-      'eventName': eventName,
-      'eventID': event_id,
-      'URL': url,
-      'userAgent': navAgent,
-      'fbc': fbc,
-      'ipv4Address': pp,
-    
-      }
-
-      setTimeout(() => {
-         
-          $.ajax({
-              type: 'POST',
-              url: 'https://hook.us1.make.com/aorjaog2ut3cu8o32yv0ih9mk543nguu',
-              crossDomain: true,
-              data: data,
-              dataType: 'json'
-        
-              }); //end ajax
-  
-      }, 500);
-     
-      
-}
 
 
 function recordQuiz(){
