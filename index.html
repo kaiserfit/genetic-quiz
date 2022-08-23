@@ -194,7 +194,10 @@ function kTr(eventName, fbc, ip){
 
     var url = window.location.href;
     var navAgent = navigator.userAgent;
-   
+   var ipx = ip;
+   if (ipx===""){
+    ipx=getCookie('_uip')
+   }
   
   var data = {
       'eventName': eventName,
@@ -202,7 +205,7 @@ function kTr(eventName, fbc, ip){
       'URL': url,
       'userAgent': navAgent,
       'fbc': fbc,
-      'ipv4Address': ipv4,
+      'ipv4Address': ipx,
     
       }
 
